@@ -4,7 +4,12 @@
 > * The guidelines below are kept at a high-level - the actual implementation is up to you.
 > * We value both computing performance (robustness and speed of code) and human efficiency (how long it took you to implement it).
 
- The work must be completed in a Python notebook (`*.ipynb`) and an accompanying Python module with any relevant helper functions.  All code should be submitted to your personal git repository (github, BitBucket, ...).  Please include an estimate of how long it took you to complete the coding exercise at the top of the notebook.
+ The work must be completed in a Python notebook (`*.ipynb`) and an accompanying Python module with any relevant helper functions.  All code should be submitted to your personal git repository (github, BitBucket, ...).  
+ 
+ Please include 
+ 
+ * an estimate of how long it took you to complete the coding exercise at the top of the notebook and 
+ * 10-fold CV AUC for the classifier problem.
 
 ## Data: download and process ratings data
 
@@ -55,7 +60,7 @@ Using this dataset implement two models (and evaluate them as you see fit):
 
 1. Implement a basic collaborative filtering recommendation model using [**keras**](www.keras.io) (or [**tensorrec**](https://github.com/jfkirk/tensorrec)) only based on `user_id` and `item_id` (no user or item features). Include hyperparameter tuning for size of embeddings: select best model out of {10, 50, 100} embedding sizes and show how you evaluate the models. [This example](https://hackernoon.com/deep-learning-for-recommendation-with-keras-and-tensorrec-2b8935c795d0) might be useful.
 
-2. For this question, assume that `ratings` also contains an `"item_descripton"` (string) field. Following the same transfer learning approach as above, we could obtain an `"item_description_embedding"` for any (new) item. Explain in 2 slides (pdf) how you would use  `"item_description_embeddings"` and user features (3 features: age $\in [0, 100]$, gender $\in {M, F}$, average historical spend on products $\geq 0$) to build a content based recommender system. 
+2. For this question, assume that `ratings` also contains an `"item_descripton"` (string) field.  We could obtain an `"item_description_embedding"` for any (new) item using the **`spacy`** module (following the same approach as above for `review_summary`). Explain in 2 slides (pdf) how you would use  `"item_description_embeddings"` and user features (3 features: **age** $\in [0, 100]$, **gender** $\in {M, F}$, **average historical spend** on products $\geq 0$) to build a content based recommender system. 
     * Do not actually implement it, but just give a high-level summary on how this would be done and its main differences (pros/cons) to the     collaborative filtering approach.
     * Would Emadri prefer to user the collaborative filtering or the content-based version? Why?
 
